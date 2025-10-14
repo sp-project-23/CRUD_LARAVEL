@@ -47,7 +47,6 @@ class CategoryController extends Controller
         $category = Category::where('id',$id)->first();
         $category->title = $request->title;
         $category->save();
-        // return redirect('/categories');
         return redirect('/categories')->withUpdate('Category Updated');
 
     }

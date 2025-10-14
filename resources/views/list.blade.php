@@ -13,6 +13,12 @@
           </div>
       @endif
 
+      @if(session()->has('update'))
+          <div class="alert alert-info" role="alert">
+              <strong>{{ session()->get('update')}}</strong>
+          </div>
+      @endif
+
       @if(session()->has('del'))
           <div class="alert alert-info" role="alert">
               <strong>{{ session()->get('del')}}</strong>
@@ -22,7 +28,7 @@
         <thead>
           <tr>
             <th>#</th>
-            <th class="w-50">Title</th>
+            <th class="w-25">Title</th>
             <th>Added On</th>
             <th>Updated On</th>
             <th>Action</th>
@@ -33,8 +39,8 @@
           <tr>
             <td>{{ $loop->index+1}}</td>
             <td>{{ $category->title}}</td>
-            <td>{{ date('d M,Y',strtotime($category->created_at)) }}</td>
-            <td>{{ date('d M,Y',strtotime($category->updated_at)) }}</td>
+            <td>{{ date('d M,Y h:ia',strtotime($category->created_at)) }}</td>
+            <td>{{ date('d M,Y h:ia',strtotime($category->updated_at)) }}</td>
             <td>
               <div class="d-flex justify-content-start gap-2">
                 <div><a href="/edit/{{ $category->id}}" class="btn btn-sm btn-outline-success" >Edit</a></div>

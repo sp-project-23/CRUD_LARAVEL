@@ -8,8 +8,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('view',[CategoryController::class,'index']);
-Route::get('new',[CategoryController::class,'create']);
+Route::get('categories',[CategoryController::class,'index']);
+Route::get('add',[CategoryController::class,'create']);
+Route::post('save',[CategoryController::class,'store']);
 Route::get('edit/{id}',[CategoryController::class,'edit']);
-Route::get('update/{id}',[CategoryController::class,'update']);
-Route::get('delete/{id}',[CategoryController::class,'delete']);
+Route::put('update/{id}',[CategoryController::class,'update']);
+Route::delete('remove/{id}',[CategoryController::class,'delete']);

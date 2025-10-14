@@ -22,14 +22,13 @@ class CategoryController extends Controller
 
     public function store(Request $request){
 
-        //validation data
         $request->validate([
-            'title' => 'required|unique:categories|max:200'
+            'title' => 'required|unique:categories|min:5|max:30'
         ]);
         $category = new Category;
         $category->title = $request->title;
         $category->save();
-        return redirect('/view')->withAdd('New Category Created');
+        return redirect('/categories')->withAdd('New Category Added');
 
     }
 
@@ -42,10 +41,13 @@ class CategoryController extends Controller
 
     public function update(Request $request, $id){
 
+        $request->validate([
+            'title' => 'required|min:5|max:30'
+        ]);
         $category = Category::where('id',$id)->first();
         $category->title = $request->title;
         $category->save();
-        return redirect('/view');
+        return redirect('/categories');
 
     }
 
@@ -53,7 +55,7 @@ class CategoryController extends Controller
 
         $category = Category::where('id',$id)->first();
         $category->delete();        
-        return redirect('/view')->withDel('Category Deleted');
+        return redirect('/categories')->withDel('Category Deleted');
 
     }
 }

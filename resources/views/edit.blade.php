@@ -2,14 +2,14 @@
 <div class="container mt-5">         
     <div class="row">
       <div class="col-lg-4"></div> 
-      <div class="col-lg-4">
-        <a class="btn btn-sm btn-info" href="/view">Categories</a>
+      <div class="col-lg-4 bg-light rounded p-3">
         <form action="/update/{{ $category->id}}" method="post" class="mt-2">
            @csrf
            @method('put')
-            <input type="text" name="title" class="form-control" value="{{ $category->title}}" placeholder="Enter title"/>
-            <div class="d-flex justify-content-end mb-2">
-              <button type="submit" class="btn btn-sm btn-outline-success mt-2">Update</button>
+            <input type="text" name="title" class="form-control" value="{{ $category->title}}" placeholder="Enter Title"/>
+            <div class="d-flex justify-content-end mt-2 gap-2">
+              <div><a class="btn btn-sm btn-outline-secondary" href="/categories">Back</a></div>
+              <div><button class="btn btn-sm btn-outline-success">Update</button></div>
             </div>
         </form>
       </div>

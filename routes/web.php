@@ -7,6 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/categories','index');
     Route::get('/add','create');

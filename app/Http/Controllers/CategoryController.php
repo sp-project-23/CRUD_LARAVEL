@@ -23,7 +23,7 @@ class CategoryController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'title' => 'required|unique:categories|min:5|max:30|alpha'
+            'title' => 'required|unique:categories|min:3|max:30|alpha'
         ]);
         $category = new Category;
         $category->title = trim($request->title);
@@ -42,7 +42,7 @@ class CategoryController extends Controller
     public function update(Request $request, $id){
 
         $request->validate([
-            'title' => 'required|min:5|max:30|alpha'
+            'title' => 'required|min:3|max:30|alpha'
         ]);
         $category = Category::where('id',$id)->first();
         $category->title = trim($request->title);

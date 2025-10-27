@@ -4,7 +4,7 @@
     <div class="col-lg-2"></div> 
     <div class="col-lg-8">           
       <div class="d-flex justify-content-end mb-2">
-        <a class="btn btn-sm btn-outline-primary" href="/add">Add Category</a>
+        <a class="btn btn-sm btn-outline-primary" href="/add">Add</a>
       </div>
 
       @if(session()->has('add'))
@@ -39,8 +39,8 @@
           <tr>
             <td>{{ $loop->index+1}}</td>
             <td>{{ $category->title}}</td>
-            <td>{{ date('d M,Y h:ia',strtotime($category->created_at)) }}</td>
-            <td>{{ date('d M,Y h:ia',strtotime($category->updated_at)) }}</td>
+            <td>{{ date('d M,Y h:ia D',strtotime($category->created_at)) }}</td>
+            <td>{{ date('d M,Y h:ia D',strtotime($category->updated_at)) }}</td>
             <td>
               <div class="d-flex justify-content-start gap-2">
                 <div><a href="/edit/{{ $category->id}}" class="btn btn-sm btn-outline-success" >Edit</a></div>
@@ -54,9 +54,12 @@
               </div>
                 
             </td>
-        </tr>
+          </tr>
             @endforeach
-        </tbody>   
+        </tbody> 
+        <tfoot>
+          
+        </tfoot>  
       </table>
       {{$categories->links()}}
     </div>

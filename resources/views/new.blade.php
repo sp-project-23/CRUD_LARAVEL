@@ -7,7 +7,7 @@
           @csrf
           <input type="text" name="title" class="form-control" placeholder="Enter Title" value="{{ old('title')}}"/>
           @if($errors->has('title'))
-            <p class="text-danger">{{$errors->first('title')}}</p>
+            <div class="alert alert-danger" role="alert">{{$errors->first('title')}}</div>
           @endif
           <div class="d-flex justify-content-end mt-2 gap-2">
             <div><a class="btn btn-sm btn-outline-secondary" href="/categories">Back</a></div>
